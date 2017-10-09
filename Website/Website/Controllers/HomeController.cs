@@ -24,7 +24,7 @@ namespace Website.Controllers
 
             SelectList manufacture = new SelectList(db.Products, "Manufacture", "Name");
             ViewBag.Manufactures = manufacture;
-            return View();
+            return View(); // test comment
         }
 
         [HttpGet]
