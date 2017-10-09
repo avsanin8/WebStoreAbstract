@@ -1,0 +1,29 @@
+﻿@model Website.Models.Products
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete product</h2>
+<dl>
+    <dt>Name of product</dt>
+    <dd>
+        @Html.DisplayFor(model=>model.Name)
+    </dd>
+
+    <dt>Manufacture of product</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Manufacture)
+    </dd>
+
+    <dt>Price of product</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+

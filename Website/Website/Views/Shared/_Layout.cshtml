@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Magazine in ASP.NET Application</title>
+    @Styles.Render("~/Content/Site.css")
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        </ul>
+    </nav>
+    @RenderBody()
+    <footer>@RenderSection("Footer", false)</footer>
+</body>
+</html>

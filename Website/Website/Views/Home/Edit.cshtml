@@ -1,0 +1,30 @@
+﻿@model Website.Models.Products
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit № @Model.Id</h2>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <p>
+            @Html.LabelFor(model => model.Name, "Name of Product")
+            <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Manufacture, "Manufacture of Product")
+            <br />
+            @Html.EditorFor(model => model.Manufacture)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Price, "Price of Product")
+            <br />
+            @Html.EditorFor(model => model.Price)
+        </p>
+        <p><input type="submit" value="Edit"</p>
+    </fieldset>
+}
+

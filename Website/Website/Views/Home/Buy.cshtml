@@ -1,0 +1,28 @@
+﻿@model Website.Models.Purchase
+@{
+    ViewBag.Title = "Buy Buy";
+}
+
+<div>
+    <h3>Form for registration of purchase</h3>
+    @using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+    {
+        @*<input type="hidden" value="@ViewBag.ProductsId" name="ProductId" />*@
+        @Html.HiddenFor(m=> m.ProductId)
+        <table>
+            <tr>
+                <td><p>@Html.LabelFor(m => m.Person, "Enter your Name")</p></td>
+                <td>@Html.EditorFor(m=>m.Person)</td>
+            </tr>
+            <tr>
+                <td><p>@Html.Label("Address", "Enter your Address")</p></td>
+                <td>
+                    @Html.EditorFor(m=>m.Address)
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="Send" /></td><td></td></tr>
+        </table>
+    } 
+
+</div>
+
