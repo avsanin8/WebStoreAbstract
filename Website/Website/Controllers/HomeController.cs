@@ -14,6 +14,7 @@ namespace Website.Controllers
     public class HomeController : Controller
     {
         ProductContext db = new ProductContext();
+        TeamUserContext dbUser = new TeamUserContext();
 
         public ActionResult Index()
         {
@@ -24,7 +25,10 @@ namespace Website.Controllers
 
             SelectList manufacture = new SelectList(db.Products, "Manufacture", "Name");
             ViewBag.Manufactures = manufacture;
-            return View(); // test comment
+
+            var users = dbUser.Users.Include(path => path.Team);
+            
+            return View(users.ToList()); 
         }
 
         [HttpGet]

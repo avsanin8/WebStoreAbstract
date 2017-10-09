@@ -2,6 +2,8 @@
     ViewBag.Title = "Shop products";
 }
 
+@model IEnumerable<Website.Models.User>
+
 <div class="jumbotron">
     <h1>Written by someone in C# with ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
@@ -28,6 +30,50 @@
                 <td><p><a href="/Home/Buy/@a.Id">Buy</a>
                     <br /><a href="/Home/Delete">Delete</a><br />
                         <a href="/Home/Edit">Edit</a></p></td>
+            </tr>
+        }
+    </table>
+
+    <br />
+    <br />
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Team.Id)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.TeamId)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                </td>
             </tr>
         }
     </table>
