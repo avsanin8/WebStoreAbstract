@@ -18,7 +18,7 @@ namespace Website.Controllers
 
         public ActionResult Index()
         {
-            Session["name"] = "Andrew"; 
+            Session["name"] = "Andrew";
             HttpContext.Response.Cookies["id"].Value = "ca-4353w";
             var products = db.Products.ToList();
             ViewBag.Products = products;
@@ -27,14 +27,109 @@ namespace Website.Controllers
             ViewBag.Manufactures = manufacture;
 
             var users = dbUser.Users.Include(path => path.Team);
-            
-            return View(users.ToList()); 
+
+            return View(users.ToList());
+        }
+
+        public ActionResult GetManufacturer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetManufacturer(Manufacture manufacture)
+        {
+            return View();
+        }
+
+        public ActionResult EditArray()
+        {
+            List<Products> products = new List<Products>();
+            products.Add(new Products { Name = "Ifone615", Manufacture = "Apple", Price = 56 });
+            products.Add(new Products { Name = "Kamera16px", Manufacture = "Google", Price = 48 });
+            products.Add(new Products { Name = "NanoRobot", Manufacture = "3DMedical", Price = 542 });
+            return View(products);
+        }
+
+        [HttpPost]
+        public string EditArray(List<Products> products)
+        {
+            return products.Count.ToString();
+        }
+
+        public ActionResult Array()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public string Array (List<string> names)
+        {
+            string fin = "";
+            for (int i = 0; i < names.Count; i++)
+            {
+                fin += names[i] + ";  ";
+            }
+            return fin;
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult CreateUser()
         {
+            SelectList teams = new SelectList(dbUser.Teams, "Id", "Name");
+            ViewBag.Teams = teams;
+
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateUser(User user)
+        {
+            dbUser.Users.Add(user); 
+            dbUser.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditUser(int? idUser)
+        {
+            if (idUser == null)
+            {
+                return HttpNotFound("statusDescription" + idUser.ToString()); //404
+            }
+            User user = dbUser.Users.Find(idUser);
+            if (user != null)
+            {
+                SelectList teams = new SelectList(dbUser.Teams, "Id", "Name");
+                ViewBag.Teams = teams;
+                return View(user);
+            }
+            return RedirectToAction("Index");
+        }
+
+        //if write without [HttpGet] or [HttpPost] -> Default [HttpGet]
+        public ActionResult DeleteUser(int? idUser) 
+        {
+            if (idUser == null)
+            {
+                return HttpNotFound();
+            }
+            User user = dbUser.Users.Find(idUser);
+            if (user != null)
+            {
+                dbUser.Users.Remove(user);
+                dbUser.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(User user)
+        {
+            dbUser.Entry(user).State = EntityState.Modified;
+            dbUser.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

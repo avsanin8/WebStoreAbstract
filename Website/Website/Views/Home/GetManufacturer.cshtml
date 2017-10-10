@@ -1,0 +1,44 @@
+﻿@model Website.Models.Manufacture
+
+@{
+    ViewBag.Title = "GetManufacturer";
+}
+
+<h2>GetManufacturer</h2>
+@using (Html.BeginForm())
+{
+    <div class="manufacturerBlock">
+        <label>Name Manufacturer</label>
+        <input type="text" name="Manufacturer" />
+    </div>
+    <div id="productsBlock">
+        <div class="productItem">
+            <h4>Product # 1</h4>
+            <div>
+                <label>Name product</label>
+                <div>
+                    <input type="text" name="Products[0].name" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><a class="addLink">Add new Item</a></p>
+    <p><input type="submit" value="Add" /></p>
+}
+@section Scripts {
+   <script>
+       $(function () {
+           var i = 0;
+           $('.addLink').click(function()
+           {
+               i++;
+               var html2Add= "<div class='bookItem'>"+
+            "<h4>Книга № "+(i+1) + "</h4>"+
+            "<div><label>Название</label><div>"+
+                    "<input type='text' name='Books["+i+"].name' />"+
+                "</div></div></div>";
+               $('#booksBlock').append(html2Add);
+           })
+       })
+    </script>
+}

@@ -13,6 +13,12 @@ namespace Website.Models
         public string Name { get; set; }
         public string Manufacture { get; set; }
         public int Price { get; set; }
+    }
 
+    public class Manufacture
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public ICollection<Products> Products { get; set; }
     }
 }
