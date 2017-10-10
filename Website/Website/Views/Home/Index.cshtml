@@ -42,32 +42,32 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(Model => Model.Name)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(Model => Model.Age)
+                @Html.DisplayNameFor(model => model.Age)
             </th>
             <th>
-                @Html.DisplayNameFor(Model => Model.Country)
+                @Html.DisplayNameFor(model => model.Country)
             </th>
             <th>
-                @Html.DisplayNameFor(Model => Model.Team.Id)
+                @Html.DisplayNameFor(model => model.Team.Id)
             </th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(ModelItem => item.Name)
+                    @Html.DisplayFor(m => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(ModelItem => item.Age)
+                    @Html.DisplayFor(m => item.Age)
                 </td>
                 <td>
-                    @Html.DisplayFor(ModelItem => item.Country)
+                    @Html.DisplayFor(m => item.Country)
                 </td>
                 <td>
-                    @Html.DisplayFor(ModelItem => item.TeamId)
+                    @Html.DisplayFor(m => item.Name)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
