@@ -1,0 +1,23 @@
+﻿@model Paging.Models.IndexViewModel
+@using Paging.Helpers
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table">
+    <tr>
+        <td>Model</td>
+        <td>Manufacturer</td>
+    </tr>
+    @foreach (var item in Model.Phones)
+    {
+        <tr>
+            <td>@item.Model</td>
+            <td>@item.Produser</td>
+        </tr>
+    }
+</table>
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+</div>
