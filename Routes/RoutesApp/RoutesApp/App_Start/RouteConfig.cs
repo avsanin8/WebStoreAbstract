@@ -13,13 +13,13 @@ namespace RoutesApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             
-            routes.IgnoreRoute("Home/Index/12"); // Ignore It works!!
+            //routes.IgnoreRoute("Home/Index/12"); // Ignore It works!!
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                constraints: new { id = @"\d{2}"});
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                );
 
             //routes.MapRoute(
             //    name: "Default",

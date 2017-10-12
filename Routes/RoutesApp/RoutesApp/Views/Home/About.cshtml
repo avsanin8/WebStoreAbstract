@@ -5,3 +5,31 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+<br />
+<a href="http://localhost:59692/Home/Index/3">Reference</a>
+<br />
+<p>Helper Html.ActionLink</p>
+<br />
+@Html.ActionLink("Name of refer22", "Index", "Product", new { stringParam = "Html.ActionLink", intParam = 10 }, new { id = "Jirniy", @class = "link" })
+<br />
+<p>Helper Html.RouteLink</p>
+<br />
+@Html.RouteLink("Name of refer RouteLink", new { controller = "Product", action = "Index", stringParam = "Html.RouteLink", intParam = 22 }, new { id = "Jirniy", @class = "link" })
+<br />
+<p>Helper Url.Action</p>
+<br />
+@Url.Action("Index", "Product", new { stringParam = "Url.Action", intParam = 56 })
+<br />
+<p>Helper Url.Action in action forexapmle:</p> 
+<a href='@Url.Action("Index", "Product", new { stringParam = "Url.Action", intParam = 56 })'>Click in action forexapmle</a>
+<br />
+<p>RouteUrl</p>
+@Url.RouteUrl(new { controller = "Product", action = "Index", stringParam = "Url.RouteUrl", intParam = 22 })
+<br />
+<br />
+<h3>End the mastHave the use "Url.Content()"</h3>
+<p>
+    Данный Хелпер создает путь к статическим файлам, например: *.css, *.js и пр.
+    например: script src='собакаUrl.Content("~/Scripts/имя файла.js")'
+</p>
+<script src='@Url.Content("~/Scripts/jquery-1.10.2.js")'></script>

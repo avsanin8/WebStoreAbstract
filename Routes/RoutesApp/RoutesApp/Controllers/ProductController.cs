@@ -9,9 +9,9 @@ namespace RoutesApp.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public string Index(string stringParam, int intParam)
         {
-            return View();
+            return stringParam + " " + intParam;
         }
     }
 }
