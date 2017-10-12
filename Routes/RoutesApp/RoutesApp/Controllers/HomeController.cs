@@ -8,7 +8,7 @@ namespace RoutesApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int id=1, string name="")
+        public ActionResult Index(int id)
         {
             return View();
         }
