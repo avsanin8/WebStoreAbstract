@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Store Area</h2>
+
+@Html.ActionLink("Any Name ref", "Index", "Product", new { id = 101}, null)
+
+<p>Ref to new area "Library"</p>
+@Html.ActionLink("Ref to new area Library", "List", new { area = "Library", controller = "Product" }, null)
+<br />
+<p>Ref to new area parrent Areas</p>
+@Html.ActionLink("parrent Areas", "Index", new { area = "", controller = "Home" }, null)
