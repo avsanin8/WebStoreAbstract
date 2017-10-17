@@ -36,10 +36,7 @@ namespace Validation.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
-            if (product.Manufacture == "Guness" && product.Year > 1910)
-            {
-                ModelState.AddModelError("", "The year must be more than 1910");
-            }
+           
             //if (product.Year == 1980)
             //{
             //    ModelState.AddModelError("Year", "Error Incorrect year");

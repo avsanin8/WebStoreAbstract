@@ -4,9 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Validation.Annotation;
 
 namespace Validation.Models
 {
+    [NotAllowed (ErrorMessage ="Incorrect Year")]
     public class Product
     {
         public int Id { get; set; }
@@ -15,10 +17,12 @@ namespace Validation.Models
         [Required(ErrorMessage = "Поле не должно быть пустым")]
         [StringLength(10,MinimumLength = 3,ErrorMessage ="Недопустимая длинна строки...")]
         [Remote("CheckName", "Home", ErrorMessage ="Incorrect name")]
+        
         public string Name { get; set; }
 
         [Display(Name = "Производитель")]
         [Required]
+        [ValidManufacture(new string[] { "Guness", "Libicore", "Crowns" }, ErrorMessage = "Incorrect Manufacture Attribute")] // without suffix Attribute
         public string Manufacture { get; set; }
 
         [Display(Name = "Цена")]

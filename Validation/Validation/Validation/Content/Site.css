@@ -23,3 +23,13 @@ textarea {
     max-width: 280px;
 }
 
+.input-validation-error {
+    color: #00ffff;
+    font-weight:bold;
+    text-decoration:underline;
+}
+
+input.input-validation-error  {
+    border: 1px solid #006699;
+    background-color: silver;
+}
