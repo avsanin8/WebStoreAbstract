@@ -14,24 +14,23 @@ namespace Validation.Models
         public int Id { get; set; }
 
         [Display(Name = "Название")]
-        [Required(ErrorMessage = "Поле не должно быть пустым")]
-        [StringLength(10,MinimumLength = 3,ErrorMessage ="Недопустимая длинна строки...")]
+        //[Required(ErrorMessage = "Поле не должно быть пустым")]
+        //[StringLength(10,MinimumLength = 3,ErrorMessage ="Недопустимая длинна строки...")]
         [Remote("CheckName", "Home", ErrorMessage ="Incorrect name")]
         
         public string Name { get; set; }
 
         [Display(Name = "Производитель")]
-        [Required]
-        [ValidManufacture(new string[] { "Guness", "Libicore", "Crowns" }, ErrorMessage = "Incorrect Manufacture Attribute")] // without suffix Attribute
+        //[Required]
+        //[ValidManufacture(new string[] { "Guness", "Libicore", "Crowns" }, ErrorMessage = "Incorrect Manufacture Attribute")] // without suffix Attribute
         public string Manufacture { get; set; }
 
         [Display(Name = "Цена")]
-        [Required]
         public int Price { get; set; }
 
         [Display(Name = "Год")]
-        [Required]
-        [Range(1800, 2017, ErrorMessage = "Не допустимый год")]
+        //[Required]
+        //[Range(1800, 2017, ErrorMessage = "Не допустимый год")]
         public int Year { get; set; }
     }
 
@@ -54,7 +53,7 @@ namespace Validation.Models
         [RegularExpression(@"[A-Za-z0-9.-_%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
         public string Password { get; set; }
-        [System.Web.Mvc.Compare("Password", ErrorMessage = "Password is not valid")]
+        //[System.Web.Mvc.Compare("Password", ErrorMessage = "Password is not valid")]
         public string PasswordConfirm { get; set; }
     }
 }
