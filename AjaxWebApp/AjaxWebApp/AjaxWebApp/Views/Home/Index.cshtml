@@ -7,9 +7,12 @@
     using (Ajax.BeginForm("ProductSearh", new AjaxOptions { UpdateTargetId = "results" }))
 </h2>
 <br />
-@using (Ajax.BeginForm("ProductSearch", new AjaxOptions { UpdateTargetId = "results",
-    Confirm = "run the action Ajax?",
-    InsertionMode = InsertionMode.InsertBefore
+
+
+@using (Ajax.BeginForm("JsonSearch"/*"ProductSearch"*/, new AjaxOptions { OnSuccess = "OnSuccess"
+    //UpdateTargetId = "results",
+    //Confirm = "run the action Ajax?",
+    //InsertionMode = InsertionMode.InsertBefore
     //LoadingElementId = "Loading",
     /*LoadingElementDuration = 600 */
 }))
@@ -17,12 +20,18 @@
     <input type="text" name="name" />
     <input type="submit" value="Search" />
 }
+
+
 <div id="results"></div>
 
-@foreach (string s in ViewBag.Manufacturers)
+@*<input type="text" id="name" name="name" />
+<input type="submit" id="submit" value="Search" />*@
+
+
+@*@foreach (string s in ViewBag.Manufacturers)
 {
     @Ajax.ActionLink(s, "ProductSearch", new { name = s}, new AjaxOptions {UpdateTargetId = "results"}) //for link need in the HomeHontroller install method [HttpGet]
-}
+}*@
 
 @*<div id="bestProduct">
     @Ajax.ActionLink("Bestof the best Product...", "BestProduct", new AjaxOptions
@@ -34,3 +43,24 @@
 @*<div id="Loading" style="display:none; color: red; font-weight:bold;">
     <p>Loading....</p>
 </div>*@
+
+@section scripts{
+    <script type="text/javascript">
+        function OnSuccess(data) {
+            var results = $('#results'); //получаем нужный элемент
+            results.empty(); //очищаем элемент
+            for (var i = 0; i < data.length; i++) {
+                results.append('<p>' + data[i].Name + '</p>');//добавляем данные в список
+            }
+        }
+
+        $(document).ready(function () {
+            $('#submit').click(function (e) {
+                e.preventDefault();
+                var name = $('#name').val();
+                name = encodeURIComponent(name);
+                $('#results').load('@Url.Action("ProductSearch")?name=' + name);
+            });
+        });
+    </script>
+    }

@@ -18,6 +18,12 @@ namespace AjaxWebApp.Controllers
             return View();
         }
 
+        public JsonResult JsonSearch(string name)
+        {
+            var jsondata = db.Products.Where(a => a.Manufacture.Contains(name)).ToList();
+            return Json(jsondata, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult BestProduct ()
         {
             Product bestProduct = db.Products.First();
