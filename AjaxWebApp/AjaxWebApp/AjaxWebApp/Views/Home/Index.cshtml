@@ -7,9 +7,30 @@
     using (Ajax.BeginForm("ProductSearh", new AjaxOptions { UpdateTargetId = "results" }))
 </h2>
 <br />
-@using (Ajax.BeginForm("ProductSearch", new AjaxOptions { UpdateTargetId = "results" }))
+@using (Ajax.BeginForm("ProductSearch", new AjaxOptions { UpdateTargetId = "results",
+    Confirm = "run the action Ajax?",
+    InsertionMode = InsertionMode.InsertBefore
+    //LoadingElementId = "Loading",
+    /*LoadingElementDuration = 600 */
+}))
 {
     <input type="text" name="name" />
     <input type="submit" value="Search" />
 }
 <div id="results"></div>
+
+@foreach (string s in ViewBag.Manufacturers)
+{
+    @Ajax.ActionLink(s, "ProductSearch", new { name = s}, new AjaxOptions {UpdateTargetId = "results"}) //for link need in the HomeHontroller install method [HttpGet]
+}
+
+@*<div id="bestProduct">
+    @Ajax.ActionLink("Bestof the best Product...", "BestProduct", new AjaxOptions
+    {
+        UpdateTargetId = "bestProduct"
+    })
+</div>*@
+
+@*<div id="Loading" style="display:none; color: red; font-weight:bold;">
+    <p>Loading....</p>
+</div>*@

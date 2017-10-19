@@ -13,10 +13,19 @@ namespace AjaxWebApp.Controllers
 
         public ActionResult Index()
         {
+
+            ViewBag.Manufacturers = db.Products.Select(s => s.Manufacture).Distinct(); 
             return View();
         }
 
-        [HttpPost]
+        public ActionResult BestProduct ()
+        {
+            Product bestProduct = db.Products.First();
+            return PartialView(bestProduct);
+        }
+
+        //[HttpPost]
+        [HttpGet] // for link in cshtml
         public ActionResult ProductSearch(string name)
         {
             var allProducts = db.Products.Where(a => a.Manufacture.Contains(name)).ToList();
