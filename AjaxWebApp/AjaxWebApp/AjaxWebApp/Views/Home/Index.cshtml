@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<h2>
+    using (Ajax.BeginForm("ProductSearh", new AjaxOptions { UpdateTargetId = "results" }))
+</h2>
+<br />
+@using (Ajax.BeginForm("ProductSearch", new AjaxOptions { UpdateTargetId = "results" }))
+{
+    <input type="text" name="name" />
+    <input type="submit" value="Search" />
+}
+<div id="results"></div>
