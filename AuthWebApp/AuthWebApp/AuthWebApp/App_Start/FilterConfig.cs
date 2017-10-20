@@ -1,14 +1,13 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using FiltersStudyApp.Filters;
-namespace FiltersStudyApp
+
+namespace AuthWebApp
 {
     public class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            filters.Add(new LogAttribute()); // Attribute for all Controllers in Application
         }
     }
 }
