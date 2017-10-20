@@ -62,7 +62,7 @@ namespace AuthWebApp.Controllers
                     //create new User
                     using (UserContext db = new UserContext())
                     {
-                        db.Users.Add(new Models.User { Email = model.Name, Password = model.Password, Age = model.Age });
+                        db.Users.Add(new User { Email = model.Name, Password = model.Password, Age = model.Age, RoleId = 2 });
                         db.SaveChanges();
 
                         user = db.Users.Where(u => u.Email == model.Name && u.Password == model.Password).FirstOrDefault();
