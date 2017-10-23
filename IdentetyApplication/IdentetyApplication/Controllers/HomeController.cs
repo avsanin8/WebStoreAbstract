@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
+
 
 namespace IdentetyApplication.Controllers
 {
@@ -39,6 +42,21 @@ namespace IdentetyApplication.Controllers
             return firstProduct.Name + " (" + firstProduct.Manufacture + ")";
         }
 
+        [Authorize]
+        public ActionResult GetMyRoles()
+        {
+            IList<string> roles = new List<string> { "Role not found" };
+            ApplicationUserManager userManager = HttpContext.GetOwinContext()
+                .GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = userManager.FindByEmail(User.Identity.Name);
+            if (user!=null)
+            {
+                roles = userManager.GetRoles(user.Id);
+            }
+            return View(roles);
+        }
+
+        [Authorize(Roles = "admin")] // only for admin
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
