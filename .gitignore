@@ -12,5 +12,8 @@
 !*.html
 !*.gitignore
 
+!*.cpp
+!*.h
+
 # ...even if they are in subdirectories
 !*/
