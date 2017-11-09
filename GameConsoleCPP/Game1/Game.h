@@ -6,6 +6,7 @@
 #include "DrawEngine.h"
 #include "Character.h"
 #include "Level.h"
+#include "Mage.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ protected:
 
 private:
 	Level *level;
-	Character *player;
+	Mage *player;
 
 	double frameCount;
 	double startTime;

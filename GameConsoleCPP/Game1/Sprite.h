@@ -5,7 +5,10 @@
 enum
 {
 	SPRITE_CLASSID,
-	CHARACTER_CLASSID
+	CHARACTER_CLASSID,
+	ENEMY_CLASSID,
+	FIREBALL_CLASSID,
+	MAGE_CLASSID
 };
 
 struct vector
@@ -29,7 +32,9 @@ public:
 	bool IsAlive();
 
 	virtual bool Move(float x, float y);
-
+	virtual void IdleUpdate();
+	
+	int classID;
 
 protected:
 	Level *level;
@@ -39,7 +44,7 @@ protected:
 	int spriteIndex;
 	int numLives;
 
-	int classID;
+	
 	vector facingDirection;
 
 	void Draw(float x, float y);

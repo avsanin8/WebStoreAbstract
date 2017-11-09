@@ -1,0 +1,22 @@
+﻿@model Domain.Entities.ProductModel
+
+<div class="well">
+    <div class="row">
+        <div class="col-xs-10">
+            <h3>
+                <strong>@Model.Name</strong>
+            </h3>
+            <h4>
+                <strong>@Model.Author</strong>
+            </h4>
+        </div>
+    </div>
+    <div class="col-xs-2">
+        <h3>
+            <strong class="pull-right label label-primary">
+                @Model.Price.ToString("#.00 UAH")
+            </strong>
+        </h3>
+    </div>
+    <span class="lead">Описание продукта: @Model.Description</span>
+</div>    

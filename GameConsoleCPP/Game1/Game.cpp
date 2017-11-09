@@ -6,16 +6,23 @@
 
 bool Game::Run()
 {
+	//SetConsoleCP(1221);
+	//SetConsoleOutputCP(1221);
+
 	level = new Level (&drawArea, 30, 20);
 
 	drawArea.CreateBackgroundTile(TILE_EMPTY, ' ');
-	drawArea.CreateBackgroundTile(TILE_WALL, '+');
+	drawArea.CreateBackgroundTile(TILE_WALL, 219);
 
-	drawArea.CreateSprite(0, '$');
-	player = new Character(level, &drawArea, 0);
+	drawArea.CreateSprite(SPRITE_PLAYER, 1);
+	drawArea.CreateSprite(SPRITE_ENEMY, '$');
+	drawArea.CreateSprite(SPRITE_FIREBALL, '*');
+
+	player = new Mage(level, &drawArea, 0); //почему изменили Character на Mage
 
 	level->Draw();
 	level->AddPlayer(player);
+	level->AddEnemies(3);
 
 	char key = ' ';
 

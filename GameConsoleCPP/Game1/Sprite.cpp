@@ -14,7 +14,7 @@ Sprite::Sprite(Level *l, DrawEngine *de, int s_index, float x, float y, int i_li
 	facingDirection.x = 1;
 	facingDirection.y = 0;
 	
-	classID = SPRITE_CLASSID; // что это и зачем?
+	classID = SPRITE_CLASSID; // для Enemy & FirreBall
 
 	level = l;
 }
@@ -55,7 +55,7 @@ bool Sprite::IsAlive()
 	return (numLives > 0);
 }
 
-bool Sprite::Move(float x, float y) // почему не void?
+bool Sprite::Move(float x, float y) 
 {
 	int xPos = (int)(pos.x + x);
 	int yPos = (int)(pos.y + y);
@@ -96,5 +96,9 @@ bool Sprite::IsValidLevelMove(int xPos, int yPos)
 		return true;
 
 	return false;
+}
+void Sprite::IdleUpdate()
+{
+	// this is for the inherited classes
 }
 

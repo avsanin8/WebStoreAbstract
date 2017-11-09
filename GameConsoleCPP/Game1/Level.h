@@ -1,6 +1,15 @@
 #pragma once
 #include "DrawEngine.h"
+#include <list>
 
+using std::list;
+
+enum
+{
+	SPRITE_PLAYER,
+	SPRITE_ENEMY,
+	SPRITE_FIREBALL
+};
 
 enum 
 {
@@ -9,8 +18,9 @@ enum
 };
 
 
-//#include "Character.h"
-class Character; // непонятно почему, если уже есть класс
+
+class Sprite;
+class Character; // непонятно почему, потому что так можно
 
 class Level
 {
@@ -23,8 +33,13 @@ public:
 	void Draw();
 	bool KeyPress(char c);
 
+	void AddEnemies(int num);
+	void AddNPC(Sprite *spr);
+	 
 	friend class Sprite;
 
+	list <Sprite *> npc;
+	list <Sprite *>::iterator Iter;
 
 protected:
 	void CreateLevel();
@@ -35,7 +50,7 @@ private:
 	int width;
 	int height;
 
-	char **level; // private or protected or public?
+	char **level; // прикольный доступ к Sprite friend class ;
 
 	Character *player;
 	DrawEngine *drawArea;

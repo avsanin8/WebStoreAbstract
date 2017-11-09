@@ -10,7 +10,7 @@ Character::Character(Level *lev, DrawEngine *de, int s_index, float x, float y,
 	rightKey = r;
 
 
-	classID = CHARACTER_CLASSID; // зачем enum
+	classID = CHARACTER_CLASSID; // 
 }
 
 bool Character::KeyPress(char c)
@@ -33,4 +33,16 @@ bool Character::KeyPress(char c)
 	}
 
 	return false;
+}
+
+void Character::AddLives(int num)
+{
+	Sprite::AddLives(num);
+	
+	if (Sprite::IsAlive())
+	{
+		pos.x = 1;
+		pos.y = 1;
+		Move(0, 0);
+	}
 }
