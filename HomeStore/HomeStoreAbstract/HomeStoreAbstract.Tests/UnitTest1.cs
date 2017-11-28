@@ -119,17 +119,17 @@ namespace HomeStoreAbstract.Tests
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new List<ProductModel>
             {
-                new ProductModel{Id = 1, Name = "Product 1", Сategory="Сategory 1"},
-                new ProductModel{Id = 2, Name = "Product 2", Сategory="Сategory 2"},
-                new ProductModel{Id = 3, Name = "Product 3", Сategory="Сategory 1"},
-                new ProductModel{Id = 4, Name = "Product 4", Сategory="Сategory 1"},
-                new ProductModel{Id = 5, Name = "Product 5", Сategory="Сategory 3"},
-                new ProductModel{Id = 6, Name = "Product 6", Сategory="Сategory 1"},
-                new ProductModel{Id = 7, Name = "Product 7", Сategory="Сategory 5"},
-                new ProductModel{Id = 8, Name = "Product 8", Сategory="Сategory 5"},
-                new ProductModel{Id = 9, Name = "Product 9", Сategory="Сategory 2"},
-                new ProductModel{Id = 10, Name = "Product 10", Сategory="Сategory 3"},
-                new ProductModel{Id = 11, Name = "Product 11", Сategory="Сategory 8"}
+                new ProductModel{Id = 1, Name = "Product 1", Category="Сategory 1"},
+                new ProductModel{Id = 2, Name = "Product 2", Category="Сategory 2"},
+                new ProductModel{Id = 3, Name = "Product 3", Category="Сategory 1"},
+                new ProductModel{Id = 4, Name = "Product 4", Category="Сategory 1"},
+                new ProductModel{Id = 5, Name = "Product 5", Category="Сategory 3"},
+                new ProductModel{Id = 6, Name = "Product 6", Category="Сategory 1"},
+                new ProductModel{Id = 7, Name = "Product 7", Category="Сategory 5"},
+                new ProductModel{Id = 8, Name = "Product 8", Category="Сategory 5"},
+                new ProductModel{Id = 9, Name = "Product 9", Category="Сategory 2"},
+                new ProductModel{Id = 10, Name = "Product 10", Category="Сategory 3"},
+                new ProductModel{Id = 11, Name = "Product 11", Category="Сategory 8"}
             });
 
             ProductsController controller = new ProductsController(mock.Object)
@@ -141,8 +141,8 @@ namespace HomeStoreAbstract.Tests
             List<ProductModel> result = ((ProductsListViewModel)controller.List("Сategory 1", 1).Model).Products.ToList();
                         
             Assert.AreEqual(result.Count(), 11);
-            Assert.IsTrue(result[3].Name == "Product 4" && result[3].Сategory == "Сategory 1");
-            Assert.IsTrue(result[5].Name == "Product 6" && result[5].Сategory == "Сategory 1");
+            Assert.IsTrue(result[3].Name == "Product 4" && result[3].Category == "Сategory 1");
+            Assert.IsTrue(result[5].Name == "Product 6" && result[5].Category == "Сategory 1");
 
         }
 

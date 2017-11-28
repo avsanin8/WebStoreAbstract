@@ -17,7 +17,7 @@ namespace Domain.Entities
         // цена
         public decimal Price { get; set; }
         // категория
-        public string Сategory { get; set; }
+        public string Category { get; set; }
         // описание продукта
         public string Description { get; set; }
     }

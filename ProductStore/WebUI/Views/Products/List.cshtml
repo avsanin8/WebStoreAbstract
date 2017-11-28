@@ -1,8 +1,8 @@
-﻿@using Domain.Entities
-@model IEnumerable<ProductModel>
+﻿@using WebUI.Models
+@model ProductsListViewModel
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "List of Products";
 }
 
 @foreach (var p in Model.Products)
@@ -12,7 +12,6 @@
 
 <div class="btn-group pull-right">
     <h4>
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, categ = Model.CurrentCategory }))
     </h4>
 </div>
-

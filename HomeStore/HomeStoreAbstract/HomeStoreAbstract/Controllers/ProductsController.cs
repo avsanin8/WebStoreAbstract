@@ -22,7 +22,7 @@ namespace HomeStoreAbstract.Controllers
             ProductsListViewModel model = new ProductsListViewModel
             {
                 Products = repository.Products
-                .Where(p => categ == null || p.Сategory == categ)
+                .Where(p => categ == null || p.Category == categ)
                 .OrderBy(product => product.Id) //упорядовачивание по первичному ключу
                 .Skip((page - 1) * pageSize)     // пропускаем товары которые располагаются до начала текущей страницы 
                 .Take(pageSize),           // выбираем какое кол-во товаров взять
@@ -32,7 +32,7 @@ namespace HomeStoreAbstract.Controllers
                     ItemsPerPage = pageSize,
                     TotalItems = repository.Products.Count()
                 },
-                CurrentСategory = categ
+                CurrentCategory = categ
         };
 
             return View(model);

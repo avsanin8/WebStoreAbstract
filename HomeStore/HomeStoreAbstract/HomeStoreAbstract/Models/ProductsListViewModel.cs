@@ -9,6 +9,6 @@ namespace HomeStoreAbstract.Models
     {
         public IEnumerable<ProductModel> Products { get; set; }
         public PagingInfo PagingInfo { get; set; }
-        public string CurrentСategory { get; set; }
+        public string CurrentCategory { get; set; }
     }
 }

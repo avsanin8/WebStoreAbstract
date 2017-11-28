@@ -22,17 +22,19 @@ namespace WebUI.Controllers
             ProductsListViewModel model = new ProductsListViewModel
             {
                 Products = repository.Products
-                .Where(p => categ == null || p.Сategory == categ)
-                .OrderBy(product => product.Id) //упорядовачивание по первичному ключу
-                .Skip((page - 1) * pageSize)     // пропускаем товары которые располагаются до начала текущей страницы 
-                .Take(pageSize),           // выбираем какое кол-во товаров взять
+                .Where(p => categ == null || p.Category == categ)
+                .OrderBy(product => product.Id)   //упорядовачивание по первичному ключу
+                .Skip((page - 1) * pageSize)    // пропускаем товары которые располагаются до начала текущей страницы 
+                .Take(pageSize),                // выбираем какое кол-во товаров взять
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,
-                    TotalItems = repository.Products.Count()
+                    TotalItems = categ == null ?
+                        repository.Products.Count() : 
+                        repository.Products.Where(product => product.Category == categ).Count()                        
                 },
-                CurrentСategory = categ
+                CurrentCategory = categ
             };
 
             return View(model);
