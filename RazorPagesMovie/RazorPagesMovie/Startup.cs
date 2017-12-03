@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RazorPagesMovie.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace RazorPagesMovie
 {
@@ -23,6 +24,18 @@ namespace RazorPagesMovie
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //using Microsoft.AspNetCore.Http.Features;
+            //50 mb file upload Thanks to SO
+            //services.Configure<FormOptions>(options =>
+            //{
+            //    options.ValueLengthLimit = int.MaxValue;
+            //    options.MultipartBodyLengthLimit = int.MaxValue;
+            //    options.MultipartHeadersLengthLimit = int.MaxValue;
+            //});
+
+
+
             // requires 
             // using RazorPagesMovie.Models;
             // using Microsoft.EntityFrameworkCore;
