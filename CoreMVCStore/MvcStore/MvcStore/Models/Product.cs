@@ -19,12 +19,14 @@ namespace MvcStore.Models
 
         public decimal Price { get; set; }
         //[RegularExpression(@" ^[A-Z]+[a-zA-Z''-'\s]*$")]
-        [StringLength(16)]
+        [StringLength(40)]
         [Required]
         public string Category { get; set; }
         //[RegularExpression(@"^[a-zA-Z] [a-zA-Z0-9-_\.]$")]
-        [StringLength(100)]
+        [StringLength(250)]
         [Required]
         public string Description { get; set; }
+
+        public string UrlPicture { get; set; }
     }
 }

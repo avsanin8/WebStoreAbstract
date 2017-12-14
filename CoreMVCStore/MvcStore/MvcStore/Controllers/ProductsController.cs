@@ -101,7 +101,7 @@ namespace MvcStore.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Author,Price,Category,Description")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Author,Price,Category,Description,UrlPicture")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -133,7 +133,7 @@ namespace MvcStore.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Author,Price,Category,Description")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Author,Price,Category,Description,UrlPicture")] Product product)
         {
             if (id != product.Id)
             {

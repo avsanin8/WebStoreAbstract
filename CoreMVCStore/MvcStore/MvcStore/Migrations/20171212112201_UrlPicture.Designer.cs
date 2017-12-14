@@ -11,9 +11,10 @@ using System;
 namespace MvcStore.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    partial class ProductContextModelSnapshot : ModelSnapshot
+    [Migration("20171212112201_UrlPicture")]
+    partial class UrlPicture
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,11 +32,11 @@ namespace MvcStore.Migrations
 
                     b.Property<string>("Category")
                         .IsRequired()
-                        .HasMaxLength(40);
+                        .HasMaxLength(16);
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(250);
+                        .HasMaxLength(100);
 
                     b.Property<string>("Name")
                         .IsRequired()
