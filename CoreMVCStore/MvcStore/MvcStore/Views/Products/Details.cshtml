@@ -41,8 +41,11 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt>
-            Url picture address is:@Html.DisplayFor(model => model.UrlPicture)
+            @Html.DisplayNameFor(model => model.UrlPicture)
         </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UrlPicture)
+        </dd>
         <dd>
             <img img src="@Html.DisplayFor(model => model.UrlPicture)" alt="@Html.DisplayFor(model => model.Name)">
         </dd>

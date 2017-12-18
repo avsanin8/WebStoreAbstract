@@ -57,7 +57,7 @@ namespace MvcStore.Models
                         Author = "Kolunya",
                         Price = 1200.00m,
                         Category = "Разное",
-                        Description = "настоящие совдеповские колонки дубасят так шо даже сосед-барабанщик в шоке!!!",
+                        Description = "Превосходные раритетные колонки, по мощности не уступают современным.",
                         UrlPicture = "https://i.imgur.com/YOR6OZ3.jpg"
                     },
                     
@@ -66,8 +66,8 @@ namespace MvcStore.Models
                         Name = "TV-TUNER X16",
                         Author = "Иван Михайлович",
                         Price = 420.59m,
-                        Category = "Бытовая техника",
-                        Description = "ловит все даже мух...",
+                        Category = "Компьютерная техника",
+                        Description = "Порты: 1 x PS/2 6 x USB 1 x VGA 1 x DVI 1 x COM 1 x RJ-45 (LAN) 1 х Аудио Слоты расширения: 1 x PCI Express x16 2 x PCI Express x1",
                         UrlPicture = "https://i.imgur.com/z28FQDr.jpg"
                     },
 
@@ -83,21 +83,21 @@ namespace MvcStore.Models
 
                     new Product
                     {
-                        Name = "Їжачок",
+                        Name = "Їжак",
                         Author = "Вован Вирвіхвіст",
                         Price = 1000.08m,
                         Category = "Разное",
-                        Description = "Кормили мы его, вес 6 кг. но колючий",
+                        Description = "Рост в холке 25см, вес 8 кг. длинна: 45см.(без учета хвоста)",
                         UrlPicture = "https://i.imgur.com/cNLJxly.jpg"
                     },
 
                     new Product
                     {
-                        Name = "Красівий чепчик",
+                        Name = "Кепка",
                         Author = "Joker Semenich",
                         Price = 200.88m,
                         Category = "Одежда",
-                        Description = "Повышенная оптикаемость",
+                        Description = "Повышенная оптикаемость, для тех кто любит Рок-н-ролл",
                         UrlPicture = "https://i.imgur.com/r1w96Zq.png"
                     },
 
@@ -107,7 +107,7 @@ namespace MvcStore.Models
                         Author = "Вован Вирвіхвіст",
                         Price = 3050.15m,
                         Category = "Разное",
-                        Description = "(обрезана вручну)",
+                        Description = "Уайетт Берри Стэпп Эрп (19 марта 1848 — 13 января 1929) — американский страж закона, ганфайтер, картёжник времён освоения американского Запада. Получил широкую известность благодаря книгам и кинофильмам в жанре вестерн. Макет является копией двуствольного дробовика, эпохи освоения «дикого запада» и станет превосходным элементом декора гостиной у ценителя мировой истории.",
                         UrlPicture = "https://i.imgur.com/JY9d0zb.jpg"
                     },
 
@@ -117,7 +117,7 @@ namespace MvcStore.Models
                         Author = "Леонид Данилович",
                         Price = 6941.32m,
                         Category = "Электроинструмент",
-                        Description = "2-kWt (У кума 1 раз подовбив и все)",
+                        Description = "2-kWt (Professional tool)",
                         UrlPicture = "https://i.imgur.com/hPpJdoi.jpg"
                     },
 
@@ -127,7 +127,7 @@ namespace MvcStore.Models
                         Author = "Магазин \"Все для дома\"",
                         Price = 1003.99m,
                         Category = "Мобильные телефоны",
-                        Description = "Исторически-эпичнейший орехокол пулеброневодонепроницаемый",
+                        Description = "Для тех, кто не в курсе, Nokia 3310  – это телефон-легенда, который прославился за счет своей выносливости. Не смотря на скудные характеристики, телефон стал популярным. Главные преимущества Nokia 3310 – простота и надежность.",
                         UrlPicture = "https://i.imgur.com/PEytUnI.jpg"
                     },
 
@@ -137,7 +137,7 @@ namespace MvcStore.Models
                         Author = "Иван Михайлович",
                         Price = 654.20m,
                         Category = "Мебель",
-                        Description = "Очень хорошое мягкое кресло для омоложения зада",
+                        Description = "Очень хорошое мягкое кресло для омоложения области зада",
                         UrlPicture = "https://i.imgur.com/UBDj2N7.jpg"
                     },
                     
@@ -147,7 +147,7 @@ namespace MvcStore.Models
                         Author = "Kolunya",
                         Price = 1200.00m,
                         Category = "Одежда",
-                        Description = "На передке красивый олень (копыт не видно, но они есть)",
+                        Description = "Теплый зимний свитер. Удобная и практичная модель. Классический крой. Состав: двойная вязка 70 - шерсти + 30 - акрил.Производитель Турция. Качество на самом высшем уровне.Приятный к телу, не колется, очень теплый.Не растягивается и не вытягивается. Размер универсальный 42 - 46(это S - M - L)",
                         UrlPicture = "https://i.imgur.com/jxXcFLk.jpg"
                     }
                     );

@@ -35,7 +35,7 @@ namespace MvcStore.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(250);
+                        .HasMaxLength(400);
 
                     b.Property<string>("Name")
                         .IsRequired()

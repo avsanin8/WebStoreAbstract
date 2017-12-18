@@ -23,7 +23,7 @@ namespace MvcStore.Models
         [Required]
         public string Category { get; set; }
         //[RegularExpression(@"^[a-zA-Z] [a-zA-Z0-9-_\.]$")]
-        [StringLength(250)]
+        [StringLength(400)]
         [Required]
         public string Description { get; set; }
 
