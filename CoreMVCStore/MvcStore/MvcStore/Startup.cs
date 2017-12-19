@@ -27,6 +27,14 @@ namespace MvcStore
 
             services.AddDbContext<ProductContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ProductContext")));
+            // I trying to Add Configure services for use IIS and Kestrel servers.
+            //To configure IISIntegration service options, include a service configuration for IISOptions in ConfigureServices
+            //Help : https://docs.microsoft.com/en-us/aspnet/core/publishing/iis?tabs=aspnetcore2x
+            services.Configure<IISOptions>(options => 
+                options.AutomaticAuthentication = true
+                );
+            // Add framework services.
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +43,7 @@ namespace MvcStore
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
             }
             else
