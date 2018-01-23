@@ -5,6 +5,7 @@
 !*.cs
 !*.css
 !*.js
+!*.jsx
 !*.map
 !*.cshtml
 !*.config
