@@ -62,7 +62,7 @@
 </div>
 
 <div>
-    <a asp-controller="Products" asp-action="Index" class="roundButton">Store</a>
+    <a asp-controller="Products" asp-action="Index" class="roundButton" id="AnimeBlock">Store</a>
     On this site you can (view / add / delete / edit / load) different products (for this go to the "Store"-section or press the round button)<br />
     The site was provided to demonstrate the technology ASP.NET MVC Core 2.0<br />
     Data-base is located on <a href="https://azure.microsoft.com">azure.microsoft.com</a> site<br />
@@ -74,6 +74,27 @@
     Microsoft .NET Framework<br />
     Version 4.7.02556
 </div>
+<script src="~/js/anime.min.js"></script>
+<script>    
+    var BlockMovement = anime({
+        targets: '#AnimeBlock',
+        translateX: -40,
+        translateY: +40,
+        autoplay: false,
+        easing: 'linear',
+        duration: 2000,
+        direction: 'alternate',
+        scale: {
+            value: 1.8,
+            duration: 500,
+            delay: 880,
+            easing: 'easeInOutQuart'
+        },
+        rotate:'1turn'
+    });
 
+    document.querySelector('.roundButton').onpointerenter = BlockMovement.restart;
+</script>
+    
 <br />
 

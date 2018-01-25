@@ -3,11 +3,93 @@
 <head>
     <meta charset="utf-8" />
     <title>Tickets React</title>
+    <style>
+        .droptarget {
+            overflow: auto;
+            float: left;
+            width: 400px;
+            height: 800px;
+            margin: 20px;
+            padding: 20px;
+            border: 6px solid #aaaaaa;
+        }
+    </style>
 </head>
 <body>
-    <div id="content"></div>
+    <div draggable="true" id="content"></div> 
+
+    <div class="droptarget" id="TO_DO">TO DO</div>
+    <div class="droptarget" id="In_Progress">In Progress</div>
+    <div class="droptarget" id="Done">Done</div>
+
+    <!--<div draggable="true" id="dragtarget"></div>-->
+    <p id="demo">Draggin progress...</p>
+
+    <script>
+        /* Events fired on the drag target */
+
+        document.addEventListener("dragstart", function (event) {
+            event.dataTransfer.setData("Text", event.target.id);
+            document.getElementById("demo").innerHTML = "Started to drag the element.";
+            // Change the opacity of the draggable element
+            event.target.style.opacity = "0.4";
+        });
+
+        // While dragging the p element, change the color of the output text
+        document.addEventListener("drag", function (event) {
+            document.getElementById("demo").style.color = "red";
+        });
+
+        // Output some text when finished dragging the p element and reset the opacity
+        document.addEventListener("dragend", function (event) {
+            document.getElementById("demo").innerHTML = "Finished dragging the element.";
+            event.target.style.opacity = "1";
+        });
+
+
+        /* Events fired on the drop target */
+
+        // When the draggable p element enters the droptarget, change the DIVS's border style
+        document.addEventListener("dragenter", function (event) {
+            if (event.target.className == "droptarget") {
+                event.target.style.border = "3px dotted red";
+            }
+        });
+
+        // By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element
+        document.addEventListener("dragover", function (event) {
+            event.preventDefault();
+        });
+
+        // When the draggable p element leaves the droptarget, reset the DIVS's border style
+        document.addEventListener("dragleave", function (event) {
+            if (event.target.className == "droptarget") {
+                event.target.style.border = "";
+            }
+        });
+
+        /* On drop - Prevent the browser default handling of the data (default is open as link on drop)
+           Reset the color of the output text and DIV's border color
+           Get the dragged data with the dataTransfer.getData() method
+           The dragged data is the id of the dragged element ("drag1")
+           Append the dragged element into the drop element
+        */
+        document.addEventListener("drop", function (event) {
+            event.preventDefault();
+            if (event.target.className == "droptarget") {
+                document.getElementById("demo").style.color = "";
+                event.target.style.border = "";
+                var data = event.dataTransfer.getData("text");
+                event.target.appendChild(document.getElementById(data)); //тут 
+            }
+        });
+    </script>
+    <br />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>-->
+    <!--<script type="text/babel" src="index.jsx"></script>-->
     <script src="js/app.jsx"></script>
 </body>
 </html>

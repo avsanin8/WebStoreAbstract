@@ -25,14 +25,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>                
+                </button>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Products" asp-action="Index" class="navbar-brand">Store</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li id="navbarScale"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li id="navbarScale"><a asp-area="" asp-controller="Products" asp-action="Index" class="navbar-brand">Store</a></li>
+                    <li id="navbarScale"><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li id="navbarScale"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -44,6 +44,19 @@
             <p>&copy; 2017 - Mvc Store simple project. Created by Andrey Sanin. All rights reserved.</p>
         </footer>
     </div>
+
+    <script src="~/js/anime.min.js"></script>
+    <script>
+            var navbarScaling = anime({
+                targets: '#navbarScale',
+                translateY: 0,
+                autoplay: false,
+                duration: 400,
+                direction: 'alternate',
+                scale: 1.3
+        });
+        document.querySelector('.nav').onpointerenter = navbarScaling.restart;
+    </script>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

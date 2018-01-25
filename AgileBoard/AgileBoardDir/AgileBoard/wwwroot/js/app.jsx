@@ -9,7 +9,7 @@
         this.props.onRemove(this.state.data);
     }
     render() {
-        return <div>
+        return <div draggable="true">
             <p><b>Name : {this.state.data.name}</b></p>
             <p><b>Description : {this.state.data.description}</b></p>
             <p><button onClick={this.onClick}>Удалить</button></p>
@@ -64,7 +64,6 @@ class TicketForm extends React.Component {
     }
 }
 
-
 class TicketsList extends React.Component {
 
     constructor(props) {
@@ -74,23 +73,25 @@ class TicketsList extends React.Component {
         this.onAddTicket = this.onAddTicket.bind(this);
         this.onRemoveTicket = this.onRemoveTicket.bind(this);
     }
+
     // загрузка данных
     loadData() {
         var xhr = new XMLHttpRequest();
         xhr.open("get", this.props.apiUrl, true);
         xhr.onload = function () {
-            var data = JSON.parse(xhr.responseText);
+            var data = JSON.parse(xhr.responseText); //xhr.responseText
             this.setState({ tickets: data });
         }.bind(this);
         xhr.send();
     }
+
     componentDidMount() {
         this.loadData();
     }
+
     // добавление объекта
     onAddTicket(ticket) {
         if (ticket) {
-
             var data = JSON.stringify({ "name": ticket.name, "description": ticket.description });
             var xhr = new XMLHttpRequest();
 
@@ -122,15 +123,13 @@ class TicketsList extends React.Component {
         }
     }
     render() {
-
         var remove = this.onRemoveTicket;
         return <div>
             <TicketForm onTicketSubmit={this.onAddTicket} />
             <h2>Список Tickets</h2>
-            <div>
+            <div draggable="true">
                 {
                     this.state.tickets.map(function (ticket) {
-
                         return <Ticket key={ticket.id} ticket={ticket} onRemove={remove} />
                     })
                 }
@@ -141,5 +140,15 @@ class TicketsList extends React.Component {
 
 ReactDOM.render(
     <TicketsList apiUrl="/api/values" />,
-    document.getElementById("content")
+    document.getElementById("content"),
+    
 );
+
+//Для обновления надо использовать другую версию функции setState(), 
+//которая в качестве параметра принимает функцию.
+//Данная функция имеет два параметра: предыдущее состояние объекта state и объект props на момент применения обновления:
+//this.setState(function (prevState, props) {
+//    return {
+//        counter: prevState.counter + props.increment
+//    };
+//});
