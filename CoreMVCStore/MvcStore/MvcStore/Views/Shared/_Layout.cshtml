@@ -22,9 +22,9 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
+                    @*<span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>*@
                 </button>
             </div>
             <div class="navbar-collapse collapse">
@@ -33,6 +33,7 @@
                     <li id="navbarScale"><a asp-area="" asp-controller="Products" asp-action="Index" class="navbar-brand">Store</a></li>
                     <li id="navbarScale"><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li id="navbarScale"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li id="navbarScale"><a asp-area="" asp-controller="Home" asp-action="Snake">Snake(game)</a></li>
                 </ul>
             </div>
         </div>
@@ -47,15 +48,15 @@
 
     <script src="~/js/anime.min.js"></script>
     <script>
-            var navbarScaling = anime({
-                targets: '#navbarScale',
-                translateY: 0,
-                autoplay: false,
-                duration: 400,
-                direction: 'alternate',
-                scale: 1.3
-        });
-        document.querySelector('.nav').onpointerenter = navbarScaling.restart;
+        ////for shake menu  - don't like
+        //var navbarScaling = anime({
+        //    targets: '#navbarScale',
+        //    autoplay: false,
+        //    duration: 2000,
+        //    direction: 'alternate',
+        //    scale: 1.1
+        //});
+        //document.querySelector('.nav').onpointerenter = navbarScaling.restart;
     </script>
 
     <environment include="Development">

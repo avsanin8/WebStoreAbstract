@@ -11,7 +11,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="~/images/Revolvers.svg" alt="ASP.NET" class="img-responsive" /> @*baner0*@
+            <img src="~/images/Revolvers.svg" alt="baner0" class="img-responsive" /> @*baner0*@
             <div class="carousel-caption" role="option">
                 <p>
                     <font size="4" color="blue" face="Verdana">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="~/images/MolecularShema.svg" alt="Visual Studio" class="img-responsive" /> @*baner1*@
+            <img src="~/images/MolecularShema.svg" alt="baner1" class="img-responsive" /> @*baner1*@
             <div class="carousel-caption" role="option">
                 <p>
                     <font size="4" color="#6e75cc" face="Verdana">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="~/images/Animated_analog_SVG_clock.svg" alt="Package Management" class="img-responsive" /> @*baner2*@
+            <img src="~/images/Animated_analog_SVG_clock.svg" alt="baner2" class="img-responsive" /> @*baner2*@
             <div class="carousel-caption" role="option">
                 <p>
                     <font size="4" color="#660404" face="Bazooka" font-style="italic">
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="~/images/Household word.svg" alt="Microsoft Azure" class="img-responsive" /> @*baner3*@
+            <img src="~/images/Household word.svg" alt="baner3" class="img-responsive" /> @*baner3*@
             <div class="carousel-caption" role="option">
                 <p>
                     <font size="4" color="#0063" face="Verdana">
@@ -72,13 +72,14 @@
     Version 15.5.2<br />
     Last Update: 12/19/2017<br />
     Microsoft .NET Framework<br />
-    Version 4.7.02556
+    Version 4.7.02556<br />
+    Many thanks for using the METANIT.COM <a href="https://metanit.com/">education system</a> (Evgeny Popov - he is a great man!).
 </div>
 <script src="~/js/anime.min.js"></script>
 <script>    
     var BlockMovement = anime({
         targets: '#AnimeBlock',
-        translateX: -40,
+        translateX: -20,
         translateY: +40,
         autoplay: false,
         easing: 'linear',
@@ -87,10 +88,10 @@
         scale: {
             value: 1.8,
             duration: 500,
-            delay: 880,
+            delay: 280,
             easing: 'easeInOutQuart'
         },
-        rotate:'1turn'
+        rotate:'0.2turn'
     });
 
     document.querySelector('.roundButton').onpointerenter = BlockMovement.restart;

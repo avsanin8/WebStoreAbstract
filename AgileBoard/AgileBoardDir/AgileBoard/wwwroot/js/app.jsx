@@ -35,8 +35,8 @@ class TicketForm extends React.Component {
     }
     onSubmit(e) {
         e.preventDefault();
-        var ticketName = this.state.name.trim();
-        var ticketDescription = this.state.description;
+        let ticketName = this.state.name.trim();
+        let ticketDescription = this.state.description;
         if (!ticketName || !ticketDescription) {
             return;
         }
@@ -58,7 +58,7 @@ class TicketForm extends React.Component {
                         value={this.state.description}
                         onChange={this.onDescriptionChange} />
                 </p>
-                <input type="submit" value="Добавить" />
+                <input type="submit" value="Добавить"/>
             </form>
         );
     }
@@ -69,6 +69,7 @@ class TicketsList extends React.Component {
     constructor(props) {
         super(props);
         this.state = { tickets: [] };
+        this.draggable = true; //maybe
 
         this.onAddTicket = this.onAddTicket.bind(this);
         this.onRemoveTicket = this.onRemoveTicket.bind(this);
@@ -76,10 +77,10 @@ class TicketsList extends React.Component {
 
     // загрузка данных
     loadData() {
-        var xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
         xhr.open("get", this.props.apiUrl, true);
         xhr.onload = function () {
-            var data = JSON.parse(xhr.responseText); //xhr.responseText
+            let data = JSON.parse(xhr.responseText); //xhr.responseText
             this.setState({ tickets: data });
         }.bind(this);
         xhr.send();
@@ -92,8 +93,8 @@ class TicketsList extends React.Component {
     // добавление объекта
     onAddTicket(ticket) {
         if (ticket) {
-            var data = JSON.stringify({ "name": ticket.name, "description": ticket.description });
-            var xhr = new XMLHttpRequest();
+            let data = JSON.stringify({ "name": ticket.name, "description": ticket.description });
+            let xhr = new XMLHttpRequest();
 
             xhr.open("post", this.props.apiUrl, true);
             xhr.setRequestHeader("Content-type", "application/json");
@@ -109,9 +110,9 @@ class TicketsList extends React.Component {
     onRemoveTicket(ticket) {
 
         if (ticket) {
-            var url = this.props.apiUrl + "/" + ticket.id;
+            let url = this.props.apiUrl + "/" + ticket.id;
 
-            var xhr = new XMLHttpRequest();
+            let xhr = new XMLHttpRequest();
             xhr.open("delete", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onload = function () {
@@ -123,11 +124,11 @@ class TicketsList extends React.Component {
         }
     }
     render() {
-        var remove = this.onRemoveTicket;
+        let remove = this.onRemoveTicket;
         return <div>
             <TicketForm onTicketSubmit={this.onAddTicket} />
             <h2>Список Tickets</h2>
-            <div draggable="true">
+            <div>
                 {
                     this.state.tickets.map(function (ticket) {
                         return <Ticket key={ticket.id} ticket={ticket} onRemove={remove} />
@@ -140,8 +141,7 @@ class TicketsList extends React.Component {
 
 ReactDOM.render(
     <TicketsList apiUrl="/api/values" />,
-    document.getElementById("content"),
-    
+    document.getElementById("content")    
 );
 
 //Для обновления надо использовать другую версию функции setState(), 

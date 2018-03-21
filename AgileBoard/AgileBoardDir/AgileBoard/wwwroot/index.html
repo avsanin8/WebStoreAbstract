@@ -16,11 +16,12 @@
     </style>
 </head>
 <body>
-    <div draggable="true" id="content"></div> 
+    <div draggable="true" id="content"></div>
 
-    <div class="droptarget" id="TO_DO">TO DO</div>
-    <div class="droptarget" id="In_Progress">In Progress</div>
-    <div class="droptarget" id="Done">Done</div>
+
+    <div class="droptarget" id="TO_DO" draggable="false">TO DO</div>
+    <div class="droptarget" id="In_Progress" draggable="false">In Progress</div>
+    <div class="droptarget" id="Done" draggable="false">Done</div>
 
     <!--<div draggable="true" id="dragtarget"></div>-->
     <p id="demo">Draggin progress...</p>
@@ -80,7 +81,7 @@
                 document.getElementById("demo").style.color = "";
                 event.target.style.border = "";
                 var data = event.dataTransfer.getData("text");
-                event.target.appendChild(document.getElementById(data)); //тут 
+                event.target.appendChild(document.getElementById(data)); //тут
             }
         });
     </script>
