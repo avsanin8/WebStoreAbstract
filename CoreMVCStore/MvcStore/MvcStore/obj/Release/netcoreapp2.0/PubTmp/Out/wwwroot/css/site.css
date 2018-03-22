@@ -26,6 +26,12 @@
     margin: 15px;
 }
 
+@media (min-width: 1200px) {
+    .container {
+        width: 1700px; /*/ small fix for canvas snake before width: 1170px;/*/
+    }
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
