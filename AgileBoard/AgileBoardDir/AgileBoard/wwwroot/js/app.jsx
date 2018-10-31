@@ -99,7 +99,7 @@ class TicketsList extends React.Component {
             xhr.open("post", this.props.apiUrl, true);
             xhr.setRequestHeader("Content-type", "application/json");
             xhr.onload = function () {
-                if (xhr.status == 200) {
+                if (xhr.status === 200) {
                     this.loadData();
                 }
             }.bind(this);
@@ -116,7 +116,7 @@ class TicketsList extends React.Component {
             xhr.open("delete", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onload = function () {
-                if (xhr.status == 200) {
+                if (xhr.status === 200) {
                     this.loadData();
                 }
             }.bind(this);

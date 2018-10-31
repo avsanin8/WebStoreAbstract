@@ -31,7 +31,7 @@ namespace WebUI.Views.Products
     #line hidden
     using WebUI.ServiceModel;
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "4.5.14.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "5.0.0.0")]
     [ServiceStack.Razor.Compilation.CodeTransformers.VirtualPathAttribute("~/Views/Products/List.cshtml")]
     public partial class @__List : ServiceStack.Razor.ViewPage<ProductsListViewModel>
     {

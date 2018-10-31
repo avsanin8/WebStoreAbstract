@@ -17,26 +17,7 @@ namespace MvcStore.Controllers
         {
             _context = context;
         }
-
-        //// GET: Products
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.Product.ToListAsync());
-        //}
-
-        // GET: Products
-        //public async Task<IActionResult> Index(string searchString)
-        //{
-        //    var products = from p in _context.Product
-        //                 select p;
-
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        products = products.Where(s => s.Name.Contains(searchString));
-        //    }
-
-        //    return View(await products.ToListAsync());
-        //}
+       
         public async Task<IActionResult> Index(string productCategory, string searchString)
         {
             // Use LINQ to get list of genres.

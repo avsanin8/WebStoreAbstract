@@ -9,7 +9,7 @@ namespace MvcStore.Models
     public class Product
     {
         public int Id { get; set; }
-        //[RegularExpression(@"^[a-zA-Z] [a-zA-Z0-9-_\.]{1,20}$")]
+        
         [StringLength(60, MinimumLength = 3)]
         [Required]
         public string Name { get; set; }
@@ -18,11 +18,11 @@ namespace MvcStore.Models
         public string Author { get; set; }
 
         public decimal Price { get; set; }
-        //[RegularExpression(@" ^[A-Z]+[a-zA-Z''-'\s]*$")]
+        
         [StringLength(40)]
         [Required]
         public string Category { get; set; }
-        //[RegularExpression(@"^[a-zA-Z] [a-zA-Z0-9-_\.]$")]
+        
         [StringLength(400)]
         [Required]
         public string Description { get; set; }
