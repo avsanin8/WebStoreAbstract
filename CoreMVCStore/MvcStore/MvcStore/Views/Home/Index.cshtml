@@ -11,7 +11,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="~/images/Revolvers.svg" alt="baner0" class="img-responsive" /> @*baner0*@
+            <img src="~/images/Holiday_Merry_Christmas.svg" alt="baner0" class="img-responsive" /> @*baner0*@
             <div class="carousel-caption" role="option">
                 <p>
                     <font size="4" color="blue" face="Verdana">
@@ -60,22 +60,20 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
+<br/>
 <div>
-    <a asp-controller="Products" asp-action="Index" class="roundButton" id="AnimeBlock">Store</a>
-    On this site you can (view / add / delete / edit / load) different products (for this go to the "Store"-section or press the round button)<br />
-    The site was provided to demonstrate the technology ASP.NET MVC Core 2.0<br />
-    Data-base is located on <a href="https://azure.microsoft.com">azure.microsoft.com</a> site<br />
-    Site created vith:
-    <br />
-    Microsoft Visual Studio Community 2017<br />
-    Version 15.5.2<br />
-    Last Update: 12/19/2017<br />
-    Microsoft .NET Framework<br />
-    Version 4.7.02556<br />
-    Many thanks for using the METANIT.COM <a href="https://metanit.com/">education system</a> (Evgeny Popov - he is a great man!).
+    @*<a asp-controller="Products" asp-action="Index" class="roundButton" id="AnimeBlock">Store</a>*@
+    <div id="body_button">
+        <div class="button_hola" onclick="location.href='@Url.Action("Index", "Products")'"><span>Store</span></div>
+    </div>
+    <p>
+        On this site you can (view / add / delete / edit / load) different products (for this go to the "Store"-section or press the button)<br />
+        The site was provided to demonstrate the technology ASP.NET MVC Core 2.0<br />
+        and migrated to last version netcoreapp2.1 <br />
+    </p>
+
 </div>
-<script src="~/js/anime.min.js"></script>
+@*<script src="~/js/anime.min.js"></script>
 <script>    
     var BlockMovement = anime({
         targets: '#AnimeBlock',
@@ -83,19 +81,19 @@
         translateY: +40,
         autoplay: false,
         easing: 'linear',
-        duration: 2000,
+        duration: 1000,
         direction: 'alternate',
         scale: {
-            value: 1.8,
-            duration: 500,
+            value: 1.6,
+            duration: 600,
             delay: 280,
             easing: 'easeInOutQuart'
         },
-        rotate:'0.2turn'
+        rotate:'0.1turn'
     });
 
     document.querySelector('.roundButton').onpointerenter = BlockMovement.restart;
-</script>
+</script>*@
     
 <br />
 
