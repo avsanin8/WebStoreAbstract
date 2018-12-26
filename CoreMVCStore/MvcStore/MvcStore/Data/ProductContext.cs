@@ -14,5 +14,7 @@ namespace MvcStore.Models
         }
 
         public DbSet<MvcStore.Models.Product> Product { get; set; }
+
+        
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -17,16 +18,16 @@ namespace MvcStore.Controllers
         {
             _context = context;
         }
-       
+        [Authorize]
         public async Task<IActionResult> Index(string productCategory, string searchString)
         {
             // Use LINQ to get list of genres.
             IQueryable<string> categoryQuery = from p in _context.Product
-                                            orderby p.Category
-                                            select p.Category;
+                                               orderby p.Category
+                                               select p.Category;
 
             var products = from p in _context.Product
-                         select p;
+                           select p;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -47,7 +48,7 @@ namespace MvcStore.Controllers
             return View(productCategoryVM);
         }
 
-        [HttpPost]
+        [HttpPost]        
         public string Index(string searchString, bool notUsed)
         {
             return "From [HttpPost]Index: filter on " + searchString;

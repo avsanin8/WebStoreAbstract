@@ -12,6 +12,9 @@ using MvcStore.Models;
 //for v 2.1
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using MvcStore.Areas.Identity.Data;
 
 namespace MvcStore
 {
@@ -38,8 +41,27 @@ namespace MvcStore
                 options.AutomaticAuthentication = true
                 );
             // Add framework services.
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1); 
+            //services.AddIdentity<IdentityUser, IdentityRole>() 
+            ////services.AddDefaultIdentity<IdentityUser>()
+            //.AddEntityFrameworkStores<UserContext>()
+            //.AddDefaultTokenProviders();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddRazorPagesOptions(options =>
+                {
+                    options.AllowAreas = true;
+                    options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+                    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+                });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            services.AddSingleton<IEmailSender, EmailSender>();
 
         }
 
@@ -57,9 +79,10 @@ namespace MvcStore
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+                        
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseCookiePolicy();
             // If the app uses Session or TempData based on Session:
             // app.UseSession();
