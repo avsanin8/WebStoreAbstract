@@ -60,6 +60,22 @@ namespace MvcStore
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
 
+            //For https redirection
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                options.HttpsPort = 5001;
+            });
+
+            // IHostingEnvironment (stored in _env) is injected into the Startup class.
+            //if (!_env.IsDevelopment())
+            //{
+            //    services.AddHttpsRedirection(options =>
+            //    {
+            //        options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
+            //        options.HttpsPort = 443;
+            //    });
+            //}
             // using Microsoft.AspNetCore.Identity.UI.Services;
             services.AddSingleton<IEmailSender, EmailSender>();
 

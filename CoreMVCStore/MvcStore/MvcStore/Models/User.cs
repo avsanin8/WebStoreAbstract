@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MvcStore.Models
 {
-    public class User : IdentityUser
+    public class User
     {
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public int Id { get; }
+        public string Name { get; }
+        public string Email { get; }
     }
 }

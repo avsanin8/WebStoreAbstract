@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcStore.Models;
 
 namespace MvcStore.Migrations.User
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20190103112336_IdentityUserRenamed")]
+    partial class IdentityUserRenamed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace MvcStore.Migrations.User
                         .HasName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("Role");
+                    b.ToTable("AspNetRoles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -60,7 +62,7 @@ namespace MvcStore.Migrations.User
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("RoleClaim");
+                    b.ToTable("AspNetRoleClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
@@ -118,7 +120,7 @@ namespace MvcStore.Migrations.User
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserClaim");
+                    b.ToTable("AspNetUserClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -138,7 +140,7 @@ namespace MvcStore.Migrations.User
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserLogin");
+                    b.ToTable("AspNetUserLogins");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -151,7 +153,7 @@ namespace MvcStore.Migrations.User
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRole");
+                    b.ToTable("AspNetUserRoles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -168,7 +170,7 @@ namespace MvcStore.Migrations.User
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("UserToken");
+                    b.ToTable("AspNetUserTokens");
                 });
 
             modelBuilder.Entity("MvcStore.Areas.Identity.Data.MvcStoreUser", b =>
