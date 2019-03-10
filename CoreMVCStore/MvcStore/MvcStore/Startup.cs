@@ -67,7 +67,17 @@ namespace MvcStore
                 options.HttpsPort = 5001;
             });
 
-            // IHostingEnvironment (stored in _env) is injected into the Startup class.
+            //services.AddHttpClient();
+            services.AddHttpClient("github", c =>
+            {
+                c.BaseAddress = new Uri("https://api.github.com/");
+                // Github API versioning
+                c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                // Github requires a user-agent
+                c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+            });
+
+            // IHostingEnvironment (stored in _env) is injected into the Startup class.            
             //if (!_env.IsDevelopment())
             //{
             //    services.AddHttpsRedirection(options =>
@@ -78,6 +88,15 @@ namespace MvcStore
             //}
             // using Microsoft.AspNetCore.Identity.UI.Services;
             services.AddSingleton<IEmailSender, EmailSender>();
+
+            //Configure IdentityOptions
+            services.Configure<IdentityOptions>(options => 
+            {
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredLength = 10;
+                options.Password.RequireDigit = true;
+            });
 
         }
 
@@ -95,7 +114,7 @@ namespace MvcStore
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-                        
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();

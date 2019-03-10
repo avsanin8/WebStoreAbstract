@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1120,10 +1120,9 @@ img {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-    display: block;
-    max-width: 100%;
-    /*here I edited this*/
-    height: 600px;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 .img-rounded {
   border-radius: 6px;
@@ -1349,17 +1348,17 @@ a.text-primary:focus {
 }
 a.text-success:hover,
 a.text-success:focus {
-  color: #055497;
+  color: #2b542c;
 }
 .text-info {
-  color: #024363;
+  color: #31708f;
 }
 a.text-info:hover,
 a.text-info:focus {
-  color: #286719;
+  color: #245269;
 }
 .text-warning {
-  color: #a31d1d;
+  color: #8a6d3b;
 }
 a.text-warning:hover,
 a.text-warning:focus {
@@ -1599,9 +1598,9 @@ pre code {
   }
 }
 @media (min-width: 1200px) {
-    .container {
-        width: 1170px; /*/ small fix for canvas snake before width: 1170px;/*/
-    }
+  .container {
+    width: 1170px;
+  }
 }
 .container-fluid {
   padding-right: 15px;
@@ -6407,15 +6406,15 @@ button.close {
   text-indent: -999px;
   cursor: pointer;
   background-color: #000 \9;
-  background-color: rgba(4, 238, 238, 0.00);
-  border: 1px solid #01f806;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #fff;
   border-radius: 10px;
 }
 .carousel-indicators .active {
   width: 12px;
   height: 12px;
   margin: 0;
-  background-color: #00fbf3;
+  background-color: #fff;
 }
 .carousel-caption {
   position: absolute;
